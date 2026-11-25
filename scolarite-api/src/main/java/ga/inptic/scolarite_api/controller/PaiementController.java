@@ -32,7 +32,7 @@ public class PaiementController {
     }
 
     @GetMapping("/impayes/filiere/{filiereId}")
-    public List> impayesParFiliere(@PathVariable Long filiereId) {
+    public List<Map<String, Object>> impayesParFiliere(@PathVariable Long filiereId) {
         return paiementService.listerImpayesParFiliere(filiereId);
     }
 }

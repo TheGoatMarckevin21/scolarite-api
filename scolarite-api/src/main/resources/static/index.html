@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INPTIC — Gestion de Scolarité</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <!-- ÉCRAN DE CONNEXION -->
+    <section id="login-view" class="center-screen">
+        <div class="glass-card login-card">
+            <div class="brand">
+                <span class="badge">INPTIC</span>
+                <h1>Scolarité API</h1>
+                <p>Connectez-vous pour accéder à l'espace de gestion</p>
+            </div>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email institutionnel</label>
+                    <input type="email" id="email" value="scolarite@inptic.ga" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" value="pass1234" required>
+                </div>
+                <button type="submit" class="btn-primary">Se connecter</button>
+                <p id="login-error" class="error-msg"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ESPACE PRINCIPAL (caché avant connexion) -->
+    <section id="app-view" class="app-container hidden">
+        <header class="glass-nav">
+            <div class="nav-left">
+                <span class="badge">INPTIC</span>
+                <strong>Portail Scolarité</strong>
+            </div>
+            <div class="nav-right">
+                <span id="user-email" class="user-pill"></span>
+                <button id="logout-btn" class="btn-ghost">Déconnexion</button>
+            </div>
+        </header>
+
+        <main class="grid-layout">
+            <!-- Carte : Nouvelle Filière -->
+            <div class="glass-card">
+                <h2>Ajouter une Filière</h2>
+                <form id="filiere-form" class="inline-form">
+                    <input type="text" id="filiere-code" placeholder="Code (ex: GI)" required>
+                    <input type="text" id="filiere-libelle" placeholder="Libellé (ex: Génie Informatique)" required>
+                    <button type="submit" class="btn-primary">Ajouter</button>
+                </form>
+                <p id="filiere-msg" class="info-msg"></p>
+
+                <h3>Filières enregistrées</h3>
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Code</th><th>Libellé</th></tr>
+                    </thead>
+                    <tbody id="filieres-table"></tbody>
+                </table>
+            </div>
+
+            <!-- Carte : Inscriptions -->
+            <div class="glass-card">
+                <h2>Dernières Inscriptions</h2>
+                <button id="refresh-btn" class="btn-ghost small">Actualiser</button>
+                <table>
+                    <thead>
+                        <tr><th>Matricule</th><th>Étudiant</th><th>Filière</th><th>Statut</th></tr>
+                    </thead>
+                    <tbody id="inscriptions-table"></tbody>
+                </table>
+            </div>
+        </main>
+    </section>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
