@@ -1,4 +1,4 @@
-// Etudiant.java
+
 package ga.inptic.scolarite_api.entity;
 
 import jakarta.persistence.*;
