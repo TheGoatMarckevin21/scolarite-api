@@ -4,7 +4,7 @@ const loginForm = document.getElementById('login-form');
 const loginError = document.getElementById('login-error');
 const userEmailSpan = document.getElementById('user-email');
 
-// Utilitaire centralisé : ajoute automatiquement le JWT à chaque appel API
+
 async function apiFetch(url, options = {}) {
     const token = localStorage.getItem('jwt_token');
     const headers = { 'Content-Type': 'application/json', ...options.headers };
